@@ -1,22 +1,19 @@
 import { EntityRepository, Repository } from 'typeorm'
 import Activities from './entities/activity.entity'
-import { CreateActivityDto } from './dto/index.dto'
 
 @EntityRepository(Activities)
 export class ActivityRepository extends Repository<Activities>{
-    async addActivity(addActivityDto: any): Promise <any>{
-        const {name, type, destination, description,cost, status, timeRange, bookingUrl, imageUrl} = addActivityDto;
+    async createActivity(createActivityDto: any): Promise <any>{
+        const {name, destination_id, description,cost, status, time_range, booking_url, image_url} = createActivityDto;
         const activity = new Activities()
         activity.name = name
-        activity.type = type
-        activity.destination = destination
+        activity.destination_id = destination_id
         activity.description = description
         activity.cost = cost
-        activity.bookingUrl = bookingUrl
-        activity.timeRange = timeRange
-        activity.imageUrl = imageUrl
+        activity.booking_url = booking_url
+        activity.time_range = time_range
+        activity.image_url = image_url
         activity.status = status
-        console.log(activity)
         await activity.save()
         return activity
     }

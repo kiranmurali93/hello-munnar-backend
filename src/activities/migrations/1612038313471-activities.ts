@@ -1,13 +1,13 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class activities1612008462430 implements MigrationInterface {
+export class activities1612038313471 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<any> {
       await queryRunner.createTable(
         new Table({
           name: 'activities',
           columns: [
             {
-              name: 'activityId',
+              name: 'id',
               type: 'bigint',
               isPrimary: true,
               isGenerated: true,
@@ -19,13 +19,13 @@ export class activities1612008462430 implements MigrationInterface {
               isNullable: true,
             },
             {
-              name: 'destination',
+              name: 'destination_id',
               type: 'bigint',
               isNullable: true,
             },
             {
               name: 'description',
-              type: 'varchar',
+              type: 'text',
               isNullable: true,
             },
             {
@@ -34,17 +34,17 @@ export class activities1612008462430 implements MigrationInterface {
               isNullable: true,
             },
             {
-              name: 'timeRange',
+              name: 'time_range',
               type: 'jsonb',
               isNullable: true,
             },
             {
-              name: 'bookingUrl',
+              name: 'booking_url',
               type: 'jsonb',
               isNullable: true,
             },
             {
-              name: 'imageUrl',
+              name: 'image_url',
               type: 'jsonb',
               isNullable: true,
             },
@@ -54,41 +54,41 @@ export class activities1612008462430 implements MigrationInterface {
               default: "'ACTIVE'",
             },
             {
-              name: 'lastLogin',
+              name: 'last_login',
               type: 'timestamp',
               isNullable: true,
               default: 'CURRENT_TIMESTAMP',
             },
             {
-              name: 'verifiedAt',
+              name: 'verified_at',
               type: 'timestamp',
               default: 'CURRENT_TIMESTAMP',
               isNullable: false,
             },
             {
-              name: 'verifiedBy',
+              name: 'verified_by',
               type: 'varchar',
               isNullable: true,
             },
             {
-              name: 'createdAt',
+              name: 'created_at',
               type: 'timestamp',
               default: 'CURRENT_TIMESTAMP',
               isNullable: false,
             },
             {
-              name: 'createdBy',
+              name: 'created_by',
               type: 'varchar',
               isNullable: true,
             },
             {
-              name: 'updatedAt',
+              name: 'updated_at',
               type: 'timestamp',
               default: 'CURRENT_TIMESTAMP',
               isNullable: false,
             },
             {
-              name: 'updatedBy',
+              name: 'updated_by',
               type: 'varchar',
               isNullable: true,
             },
